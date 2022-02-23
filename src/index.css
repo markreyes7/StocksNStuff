@@ -11,3 +11,51 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+ol{
+  list-style: none;
+}
+
+h3{
+  cursor: pointer;
+}
+p,label{
+  color: white;
+}
+body{
+  background-color: #222831 !important;
+}
+
+.mb-3{
+  padding-left: 2rem;
+}
+
+.t-style{
+  border-bottom: 2px solid #2adfff;
+  margin-top: 10px;
+}
+.t-symbol{
+  color: white;
+  /* padding-left: 2rem; */
+}
+.page-item{
+  background-color: #222831;
+}
+.glowing{
+  margin-top: 10px;
+  animation: glowAnim 1s infinite alternate ;
+
+}
+.container:nth-child(1){
+  padding-left: 0;
+}
+.pagination{
+  padding-left: 2rem !important;
+}
+@keyframes glowAnim{
+  0%{
+    box-shadow: none;
+  }
+  100%{
+    box-shadow: 0 0 20px #2adfff;
+  }
+}

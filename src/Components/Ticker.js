@@ -1,21 +1,27 @@
+import Container from 'react-bootstrap/Container';
+import { useState, useRef, useEffect } from 'react';
 
-import CloseButton from 'react-bootstrap/CloseButton';
-import Container from 'react-bootstrap/Container'
+const Ticker = ({ tickerName, high, low, volume, setSymbolToRemove, symbolToRemove }) => {
+  const [glowing, setGlowing] = useState(false)
 
-const Ticker = ({ tickerName, high, low, volume }) => {
+
   return (
-    <li style={{listType: "None"}}>
+    <li className={(glowing === true) ? 'glowing' : 't-style'} onClick={(e) => {
+      console.log(e.target.textContent)
+      setSymbolToRemove(e.target.textContent)
+    }}>
       <Container>
-        <h3>{tickerName} <span><CloseButton /></span></h3>
-  
+        <h3 className='t-symbol' onClick={() => {
+          setGlowing(!glowing)
+        }
+        } >{tickerName}</h3>
       </Container>
 
       <Container>
-        <p>high: {high}</p>
-        <p>low: {low}</p>
-
+        <p style={{ color: "white" }}>high: ${high}</p>
+        <p style={{ color: "white" }}>low: ${low}</p>
       </Container>
-     
+
     </li>
   )
 }

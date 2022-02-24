@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
   const [symbolToRemove, setSymbolToRemove] = useState();
-
+  const [popOverSym, setPopOverSym] = useState()
   const [labelsToDisplay, setLabels] = useState([]);
   const [dataToDisplay, setData] = useState([]);
 
@@ -32,7 +32,7 @@ function App() {
         .then((data) => {
           console.log("from the main APP")
           var info = data["Time Series (Daily)"];
-          Object.keys(info).slice(1, 5).map((keys, index) => labels.push(keys));
+          Object.keys(info).slice(0, 10).map((keys, index) => labels.push(keys));
           setLabels(labels)
           console.log("labels")
           console.log(labels)
@@ -50,7 +50,7 @@ function App() {
         })
 
     }
-  
+
   }, [symbolToRemove])
 
   let obj = {
@@ -59,18 +59,15 @@ function App() {
       {
         label: "Prices in USD",
         data: dataToDisplay,
-        borderColor:'rgb(255, 99, 132)',
+        borderColor: 'rgb(180, 11, 246)',
         backgroundColor: [
-          "#ffbb11",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0"
-        ]
+          '#2adfff'
+        ],
+        pointHitRadius: 4,
+        pointHoverRadius: 5
       }
     ]
   }
-
   return (
     <div>
       <Navbar bg='dark' variant='dark'>
@@ -84,7 +81,7 @@ function App() {
             <TickerGroup setSymbolToRemove={setSymbolToRemove} symbolToRemove={symbolToRemove} />
           </Col>
           <Col lg={10} xl={10}>
-            {(typeof symbolToRemove !== "undefined") ? (<Line data={obj}></Line>) : (<p>HI</p>)}
+            {(typeof symbolToRemove !== "undefined") ? (<Line  data={obj}></Line>) : (<p>HI</p>)}
           </Col>
         </Row>
       </Container>

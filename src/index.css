@@ -50,7 +50,29 @@ body{
 }
 .pagination{
   padding-left: 2rem !important;
+  justify-content: center;
 }
+
+.center-date{
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.popover-header{
+  background-color: #2a313b !important;
+  color: white !important;
+}
+
+
+.popover-body{
+  background-color: #222831;
+  color: white !important;
+}
+
+
 @keyframes glowAnim{
   0%{
     box-shadow: none;

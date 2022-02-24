@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import { useEffect, useState } from "react"
 
-const TickerGroup = ({symbolToRemove, setSymbolToRemove}) => {
+const TickerGroup = ({ symbolToRemove, setSymbolToRemove }) => {
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -15,8 +15,8 @@ const TickerGroup = ({symbolToRemove, setSymbolToRemove}) => {
     const [userInput, setUserInput] = useState();
     const [symbols, setTickerSymbols] = useState([]);
     const [currTickers, setTickers] = useState([]);
-    
-    
+
+
 
     useEffect(() => {
         console.log(currTickers)
@@ -29,6 +29,9 @@ const TickerGroup = ({symbolToRemove, setSymbolToRemove}) => {
 
     return (
         <Container>
+            <div className="center-date">
+                <span>{today}</span>
+            </div>
             <ol>
                 {(currTickers.length === 0) ? (<p>Add Stocks To Track</p>) :
                     (<div>
@@ -50,29 +53,29 @@ const TickerGroup = ({symbolToRemove, setSymbolToRemove}) => {
             </Form>
             <Pagination>
                 <Pagination.Item onClick={() => {
-                    for (var i =0; i<symbols.length;i++){
-                        if (symbols[i] === symbolToRemove){
+                    for (var i = 0; i < symbols.length; i++) {
+                        if (symbols[i] === symbolToRemove) {
                             setTickerSymbols((prev) => prev.filter((val) => (val !== symbolToRemove)))
-                            setTickers((prevTickers) => prevTickers.filter((val,index) => (index !== i)))
+                            setTickers((prevTickers) => prevTickers.filter((val, index) => (index !== i)))
                             return
                         }
-                        else{
+                        else {
                             console.log("no no no")
                         }
                     }
                 }}>-</Pagination.Item>
                 <Pagination.Item onClick={() => {
-                    if (userInput === "") {
+                    if (userInput === "" || userInput === undefined) {
                         console.log("bad boy")
                         return
                     }
-                     fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${userInput}&apikey=MWDL1LRHL23LC64V`)
+                    fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${userInput}&apikey=MWDL1LRHL23LC64V`)
                         .then(res => res.json())
                         .then((data) => {
                             console.log(data)
                             setTickerSymbols(prevSymbols => [...prevSymbols, userInput.toUpperCase()])
-                            setTickers(prevTickers => [...prevTickers, data["Time Series (Daily)"][weekend]])
-                        })
+                            setTickers(prevTickers => [...prevTickers, data["Time Series (Daily)"][today]])
+                        }).catch((error) => { return })
 
                 }}>+</Pagination.Item>
             </Pagination>

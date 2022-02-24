@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/markreyes7/StocksNStuff/static/css/main.b6db7e56.css",
-    "main.js": "/markreyes7/StocksNStuff/static/js/main.bef9bedf.js",
-    "static/js/787.cadb366d.chunk.js": "/markreyes7/StocksNStuff/static/js/787.cadb366d.chunk.js",
-    "index.html": "/markreyes7/StocksNStuff/index.html",
-    "main.b6db7e56.css.map": "/markreyes7/StocksNStuff/static/css/main.b6db7e56.css.map",
-    "main.bef9bedf.js.map": "/markreyes7/StocksNStuff/static/js/main.bef9bedf.js.map",
-    "787.cadb366d.chunk.js.map": "/markreyes7/StocksNStuff/static/js/787.cadb366d.chunk.js.map"
+    "main.css": "/StocksNStuff/static/css/main.b6db7e56.css",
+    "main.js": "/StocksNStuff/static/js/main.c325ca2d.js",
+    "static/js/787.cadb366d.chunk.js": "/StocksNStuff/static/js/787.cadb366d.chunk.js",
+    "index.html": "/StocksNStuff/index.html",
+    "main.b6db7e56.css.map": "/StocksNStuff/static/css/main.b6db7e56.css.map",
+    "main.c325ca2d.js.map": "/StocksNStuff/static/js/main.c325ca2d.js.map",
+    "787.cadb366d.chunk.js.map": "/StocksNStuff/static/js/787.cadb366d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6db7e56.css",
-    "static/js/main.bef9bedf.js"
+    "static/js/main.c325ca2d.js"
   ]
 }

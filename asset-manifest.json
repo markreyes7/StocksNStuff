@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/markreyes7/StocksNStuff/static/css/main.b6db7e56.css",
+    "main.js": "/markreyes7/StocksNStuff/static/js/main.bef9bedf.js",
+    "static/js/787.cadb366d.chunk.js": "/markreyes7/StocksNStuff/static/js/787.cadb366d.chunk.js",
+    "index.html": "/markreyes7/StocksNStuff/index.html",
+    "main.b6db7e56.css.map": "/markreyes7/StocksNStuff/static/css/main.b6db7e56.css.map",
+    "main.bef9bedf.js.map": "/markreyes7/StocksNStuff/static/js/main.bef9bedf.js.map",
+    "787.cadb366d.chunk.js.map": "/markreyes7/StocksNStuff/static/js/787.cadb366d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6db7e56.css",
+    "static/js/main.bef9bedf.js"
+  ]
+}

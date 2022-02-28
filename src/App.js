@@ -4,23 +4,23 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row'
 import TickerGroup from './Components/TickerGroup';
 import { useState, useEffect } from 'react';
+import Login from './Components/Login';
 import Chart from './Components/Chart';
+import useToken from './Components/useToken';
 import { Line } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+
+
 
 function App() {
 
+  const { token, setToken } = useToken();
+
   const [symbolToRemove, setSymbolToRemove] = useState();
-  const [popOverSym, setPopOverSym] = useState()
   const [labelsToDisplay, setLabels] = useState([]);
   const [dataToDisplay, setData] = useState([]);
-
-
-  useEffect(() => {
-    console.log("symba is ")
-    console.log(symbolToRemove)
-  })
-
+  
   useEffect(() => {
     if (symbolToRemove === "undefined") {
       return
@@ -32,7 +32,7 @@ function App() {
         .then((data) => {
           console.log("from the main APP")
           var info = data["Time Series (Daily)"];
-          Object.keys(info).slice(0, 10).map((keys, index) => labels.push(keys));
+          Object.keys(info).slice(0, 5).map((keys, index) => labels.push(keys));
           setLabels(labels)
           console.log("labels")
           console.log(labels)
@@ -68,12 +68,17 @@ function App() {
       }
     ]
   }
+  if (!token) {
+    return <Login setToken={setToken} />
+  }
   return (
+
     <div>
       <Navbar bg='dark' variant='dark'>
         <Container>
           <Navbar.Brand>StocksNStuff</Navbar.Brand>
         </Container>
+        <Link to="/preferences">Preferences</Link>
       </Navbar>
       <Container fluid>
         <Row>
@@ -81,7 +86,7 @@ function App() {
             <TickerGroup setSymbolToRemove={setSymbolToRemove} symbolToRemove={symbolToRemove} />
           </Col>
           <Col lg={10} xl={10}>
-            {(typeof symbolToRemove !== "undefined") ? (<Line  data={obj}></Line>) : (<p>HI</p>)}
+            {(typeof symbolToRemove !== "undefined") ? (<Line data={obj}></Line>) : (<p>HI</p>)}
           </Col>
         </Row>
       </Container>

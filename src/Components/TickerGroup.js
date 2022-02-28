@@ -9,7 +9,8 @@ const TickerGroup = ({ symbolToRemove, setSymbolToRemove }) => {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    today = '2022-02-24';
+    // today = yyyy + '-' + mm + '-' + dd;
     var weekend = "2022-02-18";  /*use for weekend testing */
 
     const [userInput, setUserInput] = useState();
@@ -74,7 +75,7 @@ const TickerGroup = ({ symbolToRemove, setSymbolToRemove }) => {
                         .then((data) => {
                             console.log(data)
                             setTickerSymbols(prevSymbols => [...prevSymbols, userInput.toUpperCase()])
-                            setTickers(prevTickers => [...prevTickers, data["Time Series (Daily)"][today]])
+                            setTickers(prevTickers => [...prevTickers, data["Time Series (Daily)"][weekend]])
                         }).catch((error) => { return })
 
                 }}>+</Pagination.Item>
